@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 import { es } from 'date-fns/locale';
 import Link from 'next/link';
+import Image from 'next/image'
 
 const Producto = styled.li`
     padding: 4rem;
@@ -94,7 +95,7 @@ const DetallesProducto = ({producto}) => {
                     <TextoDescripcion>{descripcion}</TextoDescripcion>
                     <Comentarios>
                         <div>
-                            <img src="/static/img/comentario.png" />
+                            <Image src="/static/img/comentario.png" alt="imagen" />
                             <p>{comentarios.length} Comentarios</p>
                         </div>
                     </Comentarios>

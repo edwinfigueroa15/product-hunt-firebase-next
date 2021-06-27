@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { css } from '@emotion/core';
 import Router from 'next/router';
 import { Formulario, Campo, InputSubmit, Error } from '../../components/ui/Formulario';
+import firebase from '../../firebase'
 
 // validaciones
 import useValidacion from '../../hooks/useValidacion';
@@ -76,7 +77,7 @@ const CrearCuenta = () => {
                 </Campo>
                 {errores.password && <Error>{errores.password}</Error>}
 
-                {error && <Error>{error} </Error>}
+                {error && <Error>{error}</Error>}
                 <InputSubmit type="submit" value="Crear Cuenta" />
 
             </Formulario>
