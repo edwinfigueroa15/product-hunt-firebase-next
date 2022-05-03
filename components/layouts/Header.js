@@ -6,6 +6,7 @@ import Buscar from '../ui/Buscar'
 import Navegacion from './Navegacion'
 import Boton from '../ui/Boton';
 import { FirebaseContext } from '../../firebase'
+import { useRouter } from 'next/router';
 
 const ContenedorHeader = styled.div`
     max-width: 1200px;
@@ -29,6 +30,12 @@ const Logo = styled.a`
 
 const Header = () => {
     const {firebase, usuario} = useContext(FirebaseContext)
+    const router = useRouter()
+
+    const cerrarSesion = () => {
+        firebase.cerrarSesion()
+        router.push("/auth/login")
+    }
 
     return (
         <header css={css`
@@ -54,7 +61,7 @@ const Header = () => {
                     { usuario ? (
                         <>
                             <p css={css` margin-right: 2rem;`}>Hola: {usuario.displayName}</p>
-                            <Boton type="button" bgColor="true" onClick={() => firebase.cerrarSesion()}>Cerrar Sesión</Boton>
+                            <Boton type="button" bgColor="true" onClick={() => cerrarSesion()}>Cerrar Sesión</Boton>
                         </>
                     ) : (
                         <>
